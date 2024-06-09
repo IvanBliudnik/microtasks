@@ -4,7 +4,7 @@ import {NewComponentTaskFull} from "./NewComponentTaskFull";
 // import {TopCar} from "./topCarsArr";
 // import {Button} from "./Button";
 
-export type FilterType = "all" | "Dollars" | "Rubles"
+export type FilterType = "All" | "Dollars" | "Rubles"
 //типизируем кнопку
 export type CurrentMoneyProps = {
     banknots:string,
