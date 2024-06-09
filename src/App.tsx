@@ -51,6 +51,7 @@ export const App = () => {
         {banknots: 'Rubles', value: 100, number: ' r1234567890'},
         {banknots: 'Dollars', value: 50, number: ' x1234567890'},
         {banknots: 'Rubles', value: 50, number: ' v1234567890'},
+        {banknots: 'Rubles', value: 50, number: ' v1234567890'},
     ];
     const [money, setMoney] = useState<Array<ArrayCurrentMoneyProps>>(initialMoney)
     let [filter, setFilter] = useState<FilterType>("All")
