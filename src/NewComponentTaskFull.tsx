@@ -1,9 +1,13 @@
 import React from 'react';
-import {CurrentMoneyProps} from "./App";
+import {ArrayCurrentMoneyProps, FilterType} from "./App";
 
+type ArrayMoney = {
+    currentMoney: Array<ArrayCurrentMoneyProps>;
+    onClickFilterHandler: (filter: FilterType) => void;
+};
 
-export const NewComponentTaskFull = (props:CurrentMoneyProps) => {
-
+export const NewComponentTaskFull = (props:ArrayMoney) => {
+const {currentMoney, onClickFilterHandler} = props;
     return (
         <div>
             <>
@@ -18,7 +22,7 @@ export const NewComponentTaskFull = (props:CurrentMoneyProps) => {
                     })}
                 </ul>
                 <div style={{marginLeft:"35px"}}>
-                    <button onClick={() => onClickFilterHandler("all")}>all</button>
+                    <button onClick={() => onClickFilterHandler("All")}>all</button>
                     <button onClick={() => onClickFilterHandler("Rubles")}>Ruble</button>
                     <button onClick={() => onClickFilterHandler("Dollars")}>Dollar</button>
                 </div>
