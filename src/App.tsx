@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import './App.css';
 import {NewComponentTaskFull} from "./NewComponentTaskFull";
+import {FullInput} from "./components/FullInput";
+import {Input} from "./components/Input";
+import {Button} from "./components/Button";
 // import {TopCar} from "./topCarsArr";
 // import {Button} from "./Button";
 
-export type FilterType = "All" | "Dollars" | "Rubles"
+// export type FilterType = "All" | "Dollars" | "Rubles"
 //типизируем кнопку
-export type ArrayCurrentMoneyProps = {
-    banknots: string,
-    value: number,
-    number: string,
-};
+// export type ArrayCurrentMoneyProps = {
+//     banknots: string,
+//     value: number,
+//     number: string,
+// };
 //типизируем кошелёк
-
 
 export const App = () => {
 //1
@@ -42,59 +44,76 @@ export const App = () => {
 //         console.log(a)
 //     }
 //4
-    const initialMoney = [
-        {banknots: 'Dollars', value: 100, number: ' a1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' z1234567890'},
-        {banknots: 'Rubles', value: 100, number: ' w1234567890'},
-        {banknots: 'Dollars', value: 100, number: ' e1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' c1234567890'},
-        {banknots: 'Rubles', value: 100, number: ' r1234567890'},
-        {banknots: 'Dollars', value: 50, number: ' x1234567890'},
-        {banknots: 'Rubles', value: 50, number: ' v1234567890'},
-        {banknots: 'Rubles', value: 50, number: ' v1234567890'},
-    ];
-    const [money, setMoney] = useState<Array<ArrayCurrentMoneyProps>>(initialMoney)
-    let [filter, setFilter] = useState<FilterType>("All")
-    //создали useState чтобы реагировал React на filter и nameButton
-    let currentMoney = money;
-    //currentMoney(отфильтрованные значения мы должны передать в map для отрисовки)
-    //если nameButton === "Dollars", то отрисуй
-    // if (filter === "Dollars") {
-    //     currentMoney = money.filter(filteredMoney =>
-    //         filteredMoney.banknots === 'Dollars');
-    // }
-    // if (filter === 'Rubles') {
-    //     //если nameButton === "Rubles", то отрисуй
-    //     currentMoney = money.filter(filteredMoney =>
-    //         filteredMoney.banknots === 'Rubles');
+//     const initialMoney = [
+//         {banknots: 'Dollars', value: 100, number: ' a1234567890'},
+//         {banknots: 'Dollars', value: 50, number: ' z1234567890'},
+//         {banknots: 'Rubles', value: 100, number: ' w1234567890'},
+//         {banknots: 'Dollars', value: 100, number: ' e1234567890'},
+//         {banknots: 'Dollars', value: 50, number: ' c1234567890'},
+//         {banknots: 'Rubles', value: 100, number: ' r1234567890'},
+//         {banknots: 'Dollars', value: 50, number: ' x1234567890'},
+//         {banknots: 'Rubles', value: 50, number: ' v1234567890'},
+//         {banknots: 'Rubles', value: 50, number: ' v1234567890'},
+//     ];
+//     const [money, setMoney] = useState<Array<ArrayCurrentMoneyProps>>(initialMoney)
+//     let [filter, setFilter] = useState<FilterType>("All")
+//     //создали useState чтобы реагировал React на filter и nameButton
+//     let currentMoney = money;
+//     //currentMoney(отфильтрованные значения мы должны передать в map для отрисовки)
+//
+//     const onClickFilterHandler = (filter: FilterType) => {
+//         setFilter(filter)
+//     }
+//     const filteredMoney = filter === 'All'
+//         ? money
+//         : money.filter(item => item.banknots === filter);
+    //Если filter равно 'All', вернуть весь массив money.
+    // Если filter не равно 'All', вернуть массив, содержащий только те элементы, у которых значение banknots совпадает с filter.
+    // 5
 
-    const onClickFilterHandler = (filter: FilterType) => {
-        setFilter(filter)
+    let [message, setMessage] = useState([
+        {message: "message1"},
+        {message: "message2"},
+        {message: "message3"},
+    ])
+    let [title, setTitle] = useState("")
+
+    const AddMessage = (title:string) => {
+        let NewMessage = {message: title};
+        setMessage([NewMessage, ...message])
     }
-    const filteredMoney = filter === 'All'
-        ? money
-        : money.filter(item => item.banknots === filter);
+
+    const callBackButtonHandler = () => {
+        AddMessage(title);
+        setTitle("")// оставить пустой input
+    }
+
     return (
-        <div>
-            <NewComponentTaskFull
-                currentMoney={filteredMoney}
-                onClickFilterHandler={onClickFilterHandler}
-            />
+        <div className="App">
+            <Input title={title} setTitle={setTitle}/>
+            <Button name={")"} callback={callBackButtonHandler}/>
+            {/*<FullInput addNewMessage={AddMessage}/>*/}
+            {message.map((el, index) => {
+                return (
+                    <div key={index}>{el.message}</div>
+                )
+            })}
         </div>
+            // </div>
     );
 };
-// return (
-//     <div className="App">
-//         {/*1*/}
-//         {/*<TopCar topCar={topCars}/>*/}
-//         {/*2*/}
-//         {/*<Button name = {"MyYouTubeChannel - 1"} callback={() => Button1Foo1("I am Vasya", 21, "Live in Minsk")}/>*/}
-//         {/*<Button name = {"MyYouTubeChannel - 2"} callback={() => Button2Foo2("I am Ivan")}/>*/}
-//         {/*<Button name = {"StupidBtn"} callback={() => Button3Foo3("I am Stupid Button")}/>*/}
-//         {/*3*/}
-//         {/*<h1>{a}</h1>*/}
-//         {/*<button onClick={onclickHandler}>number</button>*/}
-//         {/*<button onClick={onclickHandlerStart}>0</button>*/}
-//         {/*4*/}
-//     </div>
-
+// {/*1*/}
+// {/*<TopCar topCar={topCars}/>*/}
+// {/*2*/}
+// {/*<Button name = {"MyYouTubeChannel - 1"} callback={() => Button1Foo1("I am Vasya", 21, "Live in Minsk")}/>*/}
+// {/*<Button name = {"MyYouTubeChannel - 2"} callback={() => Button2Foo2("I am Ivan")}/>*/}
+// {/*<Button name = {"StupidBtn"} callback={() => Button3Foo3("I am Stupid Button")}/>*/}
+// {/*3*/}
+// {/*<h1>{a}</h1>*/}
+// {/*<button onClick={onclickHandler}>number</button>*/}
+// {/*<button onClick={onclickHandlerStart}>0</button>*/}
+// {/*4*/}
+// {/*<NewComponentTaskFull*/}
+// {/*    currentMoney={filteredMoney}*/}
+// {/*    onClickFilterHandler={onClickFilterHandler}*/}
+// {/*5*/}
