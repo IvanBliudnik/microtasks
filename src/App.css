@@ -1,5 +1,26 @@
-.App {
-  text-align: center;
+.taskWrapper {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: #4d4242;
+}
+.countWrapper {
+  width: 50%;
+  background-color: #7a9eab;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+}
+.buttonWrapper {
+  background-color: #7a9eab;
+  margin: 0 auto;
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 20px;
 }
 
 .App-logo {

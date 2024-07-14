@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import {NewComponentTaskFull} from "./NewComponentTaskFull";
-import {FullInput} from "./components/FullInput";
-import {Input} from "./components/Input";
-import {Button} from "./components/Button";
+// import {NewComponentTaskFull} from "./NewComponentTaskFull";
+// import {FullInput} from "./components/FullInput";
+// import {Input} from "./components/Input";
+// import {Button} from "./components/Button";
+import  {Counter} from "./components/Counter";
 // import {TopCar} from "./topCarsArr";
 // import {Button} from "./Button";
 
@@ -71,33 +72,34 @@ export const App = () => {
     // Если filter не равно 'All', вернуть массив, содержащий только те элементы, у которых значение banknots совпадает с filter.
     // 5
 
-    let [message, setMessage] = useState([
-        {message: "message1"},
-        {message: "message2"},
-        {message: "message3"},
-    ])
-    let [title, setTitle] = useState("")
-
-    const AddMessage = (title:string) => {
-        let NewMessage = {message: title};
-        setMessage([NewMessage, ...message])
-    }
-
-    const callBackButtonHandler = () => {
-        AddMessage(title);
-        setTitle("")// оставить пустой input
-    }
-
+//     let [message, setMessage] = useState([
+//         {message: "message1"},
+//         {message: "message2"},
+//         {message: "message3"},
+//     ])
+//     let [title, setTitle] = useState("")
+//
+//     const AddMessage = (title:string) => {
+//         let NewMessage = {message: title};
+//         setMessage([NewMessage, ...message])
+//     }
+//
+//     const callBackButtonHandler = () => {
+//         AddMessage(title);
+//         setTitle("")// оставить пустой input
+//     }
+//
     return (
-        <div className="App">
-            <Input title={title} setTitle={setTitle}/>
-            <Button name={")"} callback={callBackButtonHandler}/>
-            {/*<FullInput addNewMessage={AddMessage}/>*/}
-            {message.map((el, index) => {
-                return (
-                    <div key={index}>{el.message}</div>
-                )
-            })}
+        <div className="taskWrapper">
+            <Counter/>
+            {/*<Input title={title} setTitle={setTitle}/>*/}
+            {/*<Button name={")"} callback={callBackButtonHandler}/>*/}
+            {/*/!*<FullInput addNewMessage={AddMessage}/>*!/*/}
+            {/*{message.map((el, index) => {*/}
+            {/*    return (*/}
+            {/*        <div key={index}>{el.message}</div>*/}
+            {/*    )*/}
+            {/*})}*/}
         </div>
             // </div>
     );
