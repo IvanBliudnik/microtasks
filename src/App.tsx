@@ -1,10 +1,12 @@
-import React from 'react';
+// import React, {useState} from 'react';
 import './App.css';
 // import {NewComponentTaskFull} from "./NewComponentTaskFull";
 // import {FullInput} from "./components/FullInput";
 // import {Input} from "./components/Input";
 // import {Button} from "./components/Button";
-import  {Counter} from "./components/Counter";
+import {CounterBtn} from "./components/CounterBtn";
+// import {NewComponentTaskFull} from "./NewComponentTaskFull";
+// import {Button} from "./Button";
 // import {TopCar} from "./topCarsArr";
 // import {Button} from "./Button";
 
@@ -25,16 +27,18 @@ export const App = () => {
 //         {manufacturer: 'Audi', model: 'rs6'}
 //     ]
 //2
-    // const Button1Foo1 = (subscriber:string, age:number, address:string) => {
-    //     console.log(subscriber, age, address)
-    // }
-    // const Button2Foo2 = (subscriber:string) => {
-    //     console.log(subscriber)
-    // }
-    // const Button3Foo3 = (WhatBtn: string) => {
-    //     console.log(WhatBtn)
-    // }
-//3
+//     const Button1Foo1 = (s:string, age:number, address:string) => {
+//         console.log(s, age, address)
+//     }
+//     const Button2Foo2 = (subscriber:string) => {
+//         console.log(subscriber)
+//     }
+//     const Button3Foo3 = (WhatBtn: string) => {
+//         console.log(WhatBtn)
+//     }
+//
+//
+// 3
 //     let [a, setA] = useState(1) //a - переменная, setA - функция в которой находится a
 //     const onclickHandler = () => {
 //         setA(++a)
@@ -71,7 +75,6 @@ export const App = () => {
     //Если filter равно 'All', вернуть весь массив money.
     // Если filter не равно 'All', вернуть массив, содержащий только те элементы, у которых значение banknots совпадает с filter.
     // 5
-
 //     let [message, setMessage] = useState([
 //         {message: "message1"},
 //         {message: "message2"},
@@ -89,9 +92,10 @@ export const App = () => {
 //         setTitle("")// оставить пустой input
 //     }
 //
+
     return (
-        <div className="taskWrapper">
-            <Counter/>
+        <div className="counterStyle">
+            <CounterBtn/>
             {/*<Input title={title} setTitle={setTitle}/>*/}
             {/*<Button name={")"} callback={callBackButtonHandler}/>*/}
             {/*/!*<FullInput addNewMessage={AddMessage}/>*!/*/}
@@ -100,6 +104,8 @@ export const App = () => {
             {/*        <div key={index}>{el.message}</div>*/}
             {/*    )*/}
             {/*})}*/}
+            {/*4*/}
+            {/*<NewComponentTaskFull onClickFilterHandler={onClickFilterHandler} currentMoney={filteredMoney}/>*/}
         </div>
             // </div>
     );
@@ -107,15 +113,11 @@ export const App = () => {
 // {/*1*/}
 // {/*<TopCar topCar={topCars}/>*/}
 // {/*2*/}
-// {/*<Button name = {"MyYouTubeChannel - 1"} callback={() => Button1Foo1("I am Vasya", 21, "Live in Minsk")}/>*/}
-// {/*<Button name = {"MyYouTubeChannel - 2"} callback={() => Button2Foo2("I am Ivan")}/>*/}
-// {/*<Button name = {"StupidBtn"} callback={() => Button3Foo3("I am Stupid Button")}/>*/}
+// <Button name = {"MyYouTubeChannel - 1"} callback={() => Button1Foo1("I am Vasya", 21, "Live in Minsk")}/>
+// <Button name = {"MyYouTubeChannel - 2"} callback={() => Button2Foo2("I am Ivan")}/>
+// <Button name = {"StupidBtn"} callback={() => Button3Foo3("I am Stupid Button")}/>
 // {/*3*/}
 // {/*<h1>{a}</h1>*/}
 // {/*<button onClick={onclickHandler}>number</button>*/}
 // {/*<button onClick={onclickHandlerStart}>0</button>*/}
-// {/*4*/}
-// {/*<NewComponentTaskFull*/}
-// {/*    currentMoney={filteredMoney}*/}
-// {/*    onClickFilterHandler={onClickFilterHandler}*/}
 // {/*5*/}

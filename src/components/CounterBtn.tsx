@@ -1,27 +1,27 @@
 import React from 'react';
 
-type ButtonPropsType = {
-    result: number
-    onClick?: () => void,
-    disabled?: boolean,
-    classes?: string
-}
 
-export const CounterBtn = ({result, onClick, disabled, classes}:ButtonPropsType) => {
+export const CounterBtn = () => {
+    let [num, setNum] = React.useState(0);
 
     const onCLickUp = () => {
-        if(result >= 5) {
-            {setCo}
-        }
-        setCount(count + 1);
+        setNum(++num);
     }
     const onCLickHandlerStart = () => {
-        setCount(0);
+        setNum(0);
+    }
+    const errorNum = () => {
+        if (num >= 5) {
+            setError("")
+        } else {
+            setError("Title is required")
+        }
     }
     return (
         <>
-            <button className={classes} onClick={onCLickUp} disabled={disabled}>{result}</button>
-            <button className={classes} onClick={onCLickHandlerStart} disabled={disabled}>{result}</button>
+            <h1 className={"numStyle"}>{num}</h1>
+            <button className={"inc"} onClick={onCLickUp}>inc</button>
+            <button className={"reset"} onClick={onCLickHandlerStart}>reset</button>
         </>
     )
 }

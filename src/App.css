@@ -1,26 +1,19 @@
-.taskWrapper {
+.counterStyle {
   width: 300px;
   height: 300px;
   margin: 0 auto;
-  border-radius: 15px;
-  background-color: #4d4242;
+  text-align: center;
+  background-color: lightgray;
+  border: 2px solid lightgray;
 }
-.countWrapper {
-  width: 50%;
-  background-color: #7a9eab;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  border-radius: 25px;
+.numStyle {
+  background-color: lightblue;
 }
-.buttonWrapper {
-  background-color: #7a9eab;
-  margin: 0 auto;
-  display: inline;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  border-radius: 20px;
+.inc {
+  background-color: lightblue;
+}
+.reset {
+  background-color: lightblue;
 }
 
 .App-logo {
