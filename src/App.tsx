@@ -4,7 +4,7 @@ import './App.css';
 // import {FullInput} from "./components/FullInput";
 // import {Input} from "./components/Input";
 // import {Button} from "./components/Button";
-import {CounterBtn} from "./components/CounterBtn";
+import {Counter} from "./components/Counter";
 // import {NewComponentTaskFull} from "./NewComponentTaskFull";
 // import {Button} from "./Button";
 // import {TopCar} from "./topCarsArr";
@@ -95,7 +95,7 @@ export const App = () => {
 
     return (
         <div className="counterStyle">
-            <CounterBtn/>
+            <Counter/>
             {/*<Input title={title} setTitle={setTitle}/>*/}
             {/*<Button name={")"} callback={callBackButtonHandler}/>*/}
             {/*/!*<FullInput addNewMessage={AddMessage}/>*!/*/}
