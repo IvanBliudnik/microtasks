@@ -20,12 +20,12 @@ export const Counter = () => {
         setNum(0);
     }
     return (
-        <div>
-            <div className={"numStyle"}>{num}</div>
-            <CounterIncBtn onClick={onCLickUp} disabled={disable}/>
-            {disable && <div className={"lastNumber"}>{num}</div>}
-            <CounterResetBtn onClick={onCLickHandlerStart} disabled={num === 0}/>
-            {num === 0 && <div className={"lastNumber"}></div> }
+        <div className="counterStyle">
+            <div className={`numStyle ${num === 5 ? 'maxValue' : ''}`}>
+                {num}
+            </div>
+            <CounterIncBtn onClick={onCLickUp} disabled={disable} className="inc"/>
+            <CounterResetBtn className="reset" onClick={onCLickHandlerStart} disabled={num === 0}/>
         </div>
     );
 };
