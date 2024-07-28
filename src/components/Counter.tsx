@@ -3,7 +3,8 @@ import {CounterIncBtn} from "./CounterIncBtn";
 import {CounterResetBtn} from "./CounterResetBtn";
 
 export const Counter = () => {
-    let [num, setNum] = useState(0);
+    let initialValue = 0;
+    let [num, setNum] = useState(initialValue);
     let [disable, setDisabled] = useState(true);
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export const Counter = () => {
                 {num}
             </div>
             <CounterIncBtn onClick={onCLickUp} disabled={disable} className="inc"/>
-            <CounterResetBtn className="reset" onClick={onCLickHandlerStart} disabled={num === 0}/>
+            <CounterResetBtn className="reset" onClick={onCLickHandlerStart} disabled={num === initialValue}/>
         </div>
     );
 };
