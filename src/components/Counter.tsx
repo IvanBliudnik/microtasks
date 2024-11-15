@@ -1,32 +1,28 @@
-import React, {useEffect, useState} from 'react';
-import {CounterIncBtn} from "./CounterIncBtn";
-import {CounterResetBtn} from "./CounterResetBtn";
+import React from 'react';
+import {SuperButton} from "../SuperButton";
 
-export const Counter = () => {
-    let initialValue = 0;
-    let [num, setNum] = useState(initialValue);
-    let [disable, setDisabled] = useState(true);
 
-    useEffect(() => {
-        if (num === 5) {
-            setDisabled(true);
-        } else {
-            setDisabled(false);
-        }
-    }, [num]);
-    const onCLickUp = () => {
-        setNum((num) => num + 1);
-    }
-    const onCLickHandlerStart = () => {
-        setNum(0);
-    }
+
+
+export type CounterPropsType = {
+    value: number
+    maxValue: number
+    onCLickUp: () => void
+    onCLickHandlerStart: () => void
+    disable: boolean
+}
+
+export const Counter = (props:CounterPropsType) => {
+
+    let {value, maxValue, onCLickUp, onCLickHandlerStart, disable} = props;
+
     return (
         <div className="counterStyle">
-            <div className={`numStyle ${num === 5 ? 'maxValue' : ''}`}>
-                {num}
+            <div className={`numStyle ${value === 5 ? 'maxValue' : ''}`}>
+                {value}
             </div>
-            <CounterIncBtn onClick={onCLickUp} disabled={disable} className="inc"/>
-            <CounterResetBtn className="reset" onClick={onCLickHandlerStart} disabled={num === initialValue}/>
+            <SuperButton title="inc" onClick={onCLickUp} disable={value === maxValue} />
+            <SuperButton title="reset" onClick={onCLickHandlerStart} disable={disable} />
         </div>
     );
 };

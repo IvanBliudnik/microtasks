@@ -5,6 +5,8 @@ import './App.css';
 // import {Input} from "./components/Input";
 // import {Button} from "./components/Button";
 import {Counter} from "./components/Counter";
+import CounterSet from "./components/CounterSet";
+import {useEffect, useState} from "react";
 // import {NewComponentTaskFull} from "./NewComponentTaskFull";
 // import {Button} from "./Button";
 // import {TopCar} from "./topCarsArr";
@@ -18,7 +20,11 @@ import {Counter} from "./components/Counter";
 //     number: string,
 // };
 //типизируем кошелёк
-
+// export type Counter = {
+//     count: number,
+//     setCount: (count: number) => void
+// }
+ export const initialValue = 0;
 export const App = () => {
 //1
 //     const topCars = [
@@ -92,10 +98,113 @@ export const App = () => {
 //         setTitle("")// оставить пустой input
 //     }
 //
+//     import React, { useState } from 'react';
+//     import { Counter } from './Counter';
+//
+//     const ParentComponent = () => {
+//         const [count, setCount] = useState(0);
+//         const [disable, setDisable] = useState(true);
+//
+//         const increment = () => {
+//             if (count < 5) {
+//                 setCount(count + 1);
+//             }
+//         };
+//
+//         const reset = () => {
+//             setCount(0);
+//         };
+//
+//         // Update disable state based on count
+//         useEffect(() => {
+//             setDisable(count >= 5);
+//         }, [count]);
+//
+//         return (
+//             <Counter
+//                 value={count}
+//                 onCLickUp={increment}
+//                 onCLickHandlerStart={reset}
+//                 disable={disable}
+//             />
+//         );
+//     };
+
+
+
+    const [value, setValue] = useState(initialValue);
+    const [maxValue, setMaxValue] = useState<number>(initialValue);
+    const [startValue, setStartValue] = useState<number>(initialValue);
+    let [disable, setDisabled] = useState(true);
+
+    useEffect(() => {
+        if (value === 5) {
+            setDisabled(true);
+        } else {
+            setDisabled(false);
+        }
+    }, [value]);
+    const onCLickUp = () => {
+        setValue((value) => value + 1);
+    }
+    const onCLickHandlerStart = () => {
+        if (value > 0) {
+            const storedValue = localStorage.getItem(`counterValue`);
+            if (storedValue) {
+                setValue(JSON.parse(storedValue))
+            }
+        } else {
+            setValue(initialValue);
+        }
+    }
+
+    const inkUpMaxHandler = () => {
+        setMaxValue(maxValue + 1);
+    }
+    const inkDownMaxHandler = () => {
+        if (maxValue > 0) {
+            setMaxValue(maxValue - 1);
+        }
+        setDisabled(true)
+    }
+
+    const inkUpStartHandler = () => {
+        setStartValue(startValue + 1);
+    }
+    const inkDownStartHandler = () => {
+        if (startValue > 0) {
+            setStartValue(startValue - 1);
+        }
+        setDisabled(true)
+    }
+    const setLocalStorageHandler = () => {
+        localStorage.setItem(`counterValue`, JSON.stringify(startValue));
+    }
 
     return (
-        <div className="counterStyle">
-            <Counter/>
+        <div className="App">
+            <div className="counterStyle">
+            <Counter
+                value={value}
+                maxValue={maxValue}
+                onCLickUp = {onCLickUp}
+                onCLickHandlerStart = {onCLickHandlerStart}
+                disable = {disable}
+            />
+            </div>
+            <div className="counterSetStyle">
+            <CounterSet
+                value={value}
+                startValue = {startValue}
+                maxValue={maxValue}
+                inkUpMaxHandler = {inkUpMaxHandler}
+                inkDownMaxHandler = {inkDownMaxHandler}
+                inkUpStartHandler = {inkUpStartHandler}
+                inkDownStartHandler = {inkDownStartHandler}
+                setLocalStorageHandler = {setLocalStorageHandler}
+                disable={disable}
+            />
+            </div>
             {/*<Input title={title} setTitle={setTitle}/>*/}
             {/*<Button name={")"} callback={callBackButtonHandler}/>*/}
             {/*/!*<FullInput addNewMessage={AddMessage}/>*!/*/}
@@ -107,7 +216,7 @@ export const App = () => {
             {/*4*/}
             {/*<NewComponentTaskFull onClickFilterHandler={onClickFilterHandler} currentMoney={filteredMoney}/>*/}
         </div>
-            // </div>
+        // </div>
     );
 };
 // {/*1*/}
