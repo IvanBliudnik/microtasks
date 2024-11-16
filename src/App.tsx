@@ -138,7 +138,7 @@ export const App = () => {
     let [disable, setDisabled] = useState(true);
 
     useEffect(() => {
-        setDisabled(value >= 5);
+        setDisabled(value === maxValue);
     }, [value]);
 
     const onCLickUp = () => {

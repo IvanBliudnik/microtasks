@@ -5,6 +5,7 @@ import {SuperButton} from "../SuperButton";
 
 
 export type CounterPropsType = {
+    // title: string;
     value: number
     maxValue: number
     onCLickUp: () => void
@@ -18,11 +19,13 @@ export const Counter = (props:CounterPropsType) => {
 
     return (
         <div className="counterStyle">
+
             <div className={`numStyle ${value === maxValue ? 'maxValue' : ''}`}>
                 {value}
             </div>
-            <SuperButton title="inc" onClick={onCLickUp} disable={disable} />
-            <SuperButton title="reset" onClick={onCLickHandlerStart} disable={disable} />
+            <div className={`titleStyle ${value !== maxValue ? 'hideTitle' : ''}`}>enter value and press "set"</div>
+            <SuperButton title="inc" onClick={onCLickUp} disable={value === maxValue }/>
+            <SuperButton title="reset" onClick={onCLickHandlerStart} disable={!disable}/>
         </div>
     );
 };

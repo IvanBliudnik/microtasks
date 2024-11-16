@@ -6,8 +6,8 @@ export type SpecialPropsType = {
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement> & SpecialPropsType;
 
-export const SuperButton = ({title, onClick}: Props) => {
+export const SuperButton = ({title, onClick, disable}: Props) => {
     return (
-        <button onClick={onClick}>{title}</button>
+        <button onClick={onClick} disabled={disable}>{title}</button>
     )
 }
