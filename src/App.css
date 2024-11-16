@@ -95,75 +95,7 @@
     transform: rotate(360deg);
   }
 }
-.numStyle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  margin: 10px 0; /* Добавим немного пространства вокруг */
-  background-color: lightblue;
-  font-size: 1.5em;
-  font-weight: bold; /* Сделаем текст полужирным */
-  color: black; /* Цвет текста по умолчанию */
-  border-radius: 5px; /* Скруглим углы */
-  transition: color 0.3s, font-size 0.3s; /* Плавный переход для изменений */
-}
 
-.inc, .reset {
-  display: inline-block;
-  background-color: lightblue;
-  width: 80px; /* Увеличим ширину кнопок */
-  height: 40px; /* Увеличим высоту кнопок */
-  margin: 5px; /* Пространство между кнопками */
-  border: none; /* Уберем границу */
-  border-radius: 5px; /* Скруглим углы */
-  cursor: pointer; /* Изменим курсор при наведении */
-  font-size: 1em;
-  transition: background-color 0.3s; /* Плавный переход для фона */
-}
-
-.inc:hover, .reset:hover {
-  background-color: deepskyblue; /* Цвет фона при наведении */
-}
-.lastNumber {
-  color: red;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 .counterSetStyle {
   display: flex;
   flex-direction: column;

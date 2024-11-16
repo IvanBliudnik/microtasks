@@ -18,10 +18,10 @@ export const Counter = (props:CounterPropsType) => {
 
     return (
         <div className="counterStyle">
-            <div className={`numStyle ${value === 5 ? 'maxValue' : ''}`}>
+            <div className={`numStyle ${value === maxValue ? 'maxValue' : ''}`}>
                 {value}
             </div>
-            <SuperButton title="inc" onClick={onCLickUp} disable={value === maxValue} />
+            <SuperButton title="inc" onClick={onCLickUp} disable={disable} />
             <SuperButton title="reset" onClick={onCLickHandlerStart} disable={disable} />
         </div>
     );

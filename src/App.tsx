@@ -138,12 +138,9 @@ export const App = () => {
     let [disable, setDisabled] = useState(true);
 
     useEffect(() => {
-        if (value === 5) {
-            setDisabled(true);
-        } else {
-            setDisabled(false);
-        }
+        setDisabled(value >= 5);
     }, [value]);
+
     const onCLickUp = () => {
         setValue((value) => value + 1);
     }
@@ -167,7 +164,6 @@ export const App = () => {
         }
         setDisabled(true)
     }
-
     const inkUpStartHandler = () => {
         setStartValue(startValue + 1);
     }
