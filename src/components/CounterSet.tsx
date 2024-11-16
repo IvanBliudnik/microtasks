@@ -19,17 +19,17 @@ export const CounterSet = (props:CounterSetPropsType) => {
 
     return (
         <div className="counterSetStyle">
-            <div className={`numStyle ${startValue === 0 ? 'lastNumber' : ''}`}>
-                <SuperButton title="+" onClick={inkUpMaxHandler} disable={!disable}/>
-                <SuperButton title="-" onClick={inkDownMaxHandler} disable={!disable}/>
+            <div className={`numStyle`}>
+                <SuperButton title="+" onClick={inkUpMaxHandler} disable={value === maxValue}/>
+                <SuperButton title="-" onClick={inkDownMaxHandler} disable={value === 0}/>
             </div>
             <>max value: {maxValue}</>
-            <div className={`numStyle ${startValue === 10 ? 'maxValue' : ''}`}>
-                <SuperButton title="+" onClick={inkUpStartHandler} disable={!disable}/>
-                <SuperButton title="-" onClick={inkDownStartHandler} disable={!disable}/>
+            <div className={`numStyle ${startValue ? 'maxValue' : ''}`}>
+                <SuperButton title="+" onClick={inkUpStartHandler} disable={value === maxValue}/>
+                <SuperButton title="-" onClick={inkDownStartHandler} disable={value === 0}/>
             </div>
             <>start value: {startValue}</>
-            <SuperButton onClick={setLocalStorageHandler} disable={value === maxValue } title={"set Value"}/>
+            <SuperButton onClick={setLocalStorageHandler} disable={value === maxValue} title={"set Value"}/>
         </div>
     );
 }

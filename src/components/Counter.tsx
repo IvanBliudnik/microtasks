@@ -5,7 +5,6 @@ import {SuperButton} from "../SuperButton";
 
 
 export type CounterPropsType = {
-    // title: string;
     value: number
     maxValue: number
     onCLickUp: () => void
